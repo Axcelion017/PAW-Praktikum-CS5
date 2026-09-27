@@ -189,7 +189,7 @@ export default function ComputerSciencePortfolio() {
     : PROJECTS.filter((p) => p.category === selectedCategory);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("mike.newton.dev@cs.edu");
+    navigator.clipboard.writeText("michaelnewton1708@gmail.com");
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2200);
   };
@@ -219,7 +219,7 @@ export default function ComputerSciencePortfolio() {
         output = `B.S. in Computer Science | GPA: ${EDUCATION.gpa} | ${EDUCATION.honors}`;
         break;
       case "contact":
-        output = "Email: mike.newton.dev@cs.edu | GitHub: github.com/mikenewton | LinkedIn: linkedin.com/in/mikenewton";
+        output = "Email: michaelnewton1708@gmail.com | GitHub: github.com/Axcelion017| LinkedIn: www.linkedin.com/in/michael-alexander-newton-255a79340";
         break;
       case "sudo hire":
       case "hire":
@@ -711,7 +711,7 @@ export default function ComputerSciencePortfolio() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span>mike.newton.dev@cs.edu</span>
+                    <span>michaelnewton1708@gmail.com</span>
                   </div>
 
                   <div className="flex items-center gap-3 text-sm text-slate-300">
@@ -730,7 +730,7 @@ export default function ComputerSciencePortfolio() {
                     onClick={handleCopyEmail}
                     className="text-xs font-mono font-semibold bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-cyan-400 px-4 py-2.5 rounded-xl border border-slate-700 transition-all duration-150 ease-out active:scale-95"
                   >
-                    {copiedEmail ? "✓ Copied: mike.newton.dev@cs.edu" : "Copy Email to Clipboard"}
+                    {copiedEmail ? "✓ Copied: michaelnewton1708@gmail.com" : "Copy Email to Clipboard"}
                   </button>
                 </div>
               </div>
