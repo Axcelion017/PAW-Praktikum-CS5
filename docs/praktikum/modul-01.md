@@ -8,12 +8,19 @@ Repositori : https://github.com/Axcelion017/PAW-Praktikum-CS5
 * 452bb0f (HEAD -> Dokumen-Teknis, origin/MikeW1, origin/HEAD, MikeW1) First Push
 * ecf8ca0 (main, feat/website-changes) First Push
 
+Link Pull Request: https://github.com/Axcelion017/PAW-Praktikum-CS5/pull/1
+
 Penangana konflik adalah dengan melakukan perbaikan pada baris kode yang terkena konflik
 
 
 ## 3. Pengamatan Lalu Lintas HTTP
 - Lembar kerja pengamatan (Tabel 9) beserta tangkapan layar DevTools
 ![alt text](image.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-6.png)
 - Keluaran curl -I dan curl -v
 HTTP/1.1 200 OK
 Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
