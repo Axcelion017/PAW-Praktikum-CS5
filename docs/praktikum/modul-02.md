@@ -3,23 +3,23 @@ Nama/NIM : Michael Alexander Newton (105224017)
 Repositori : https://github.com/Axcelion017/PAW-Praktikum-CS5/tree/main/week-2
 ## 1. Struktur Semantik
 - Kerangka landmark dan hierarki judul halaman utama
-<header> berperan sebagai banner.
+header berperan sebagai banner.
 
-<nav aria-label="Navigasi utama"> berperan sebagai navigation.
+nav aria-label="Navigasi utama" berperan sebagai navigation.
 
-<main id="konten"> berperan sebagai main.
+main id="konten" berperan sebagai main.
 
-<section aria-labelledby="..."> berperan sebagai region (karena diberi nama menggunakan aria-labelledby).
+section aria-labelledby="..." berperan sebagai region (karena diberi nama menggunakan aria-labelledby).
 
-<aside aria-label="Informasi tambahan"> berperan sebagai complementary.
+aside aria-label="Informasi tambahan" berperan sebagai complementary.
 
-<footer> berperan sebagai contentinfo.
+footer berperan sebagai contentinfo.
 
-<h1>: Kalimat nilai utama produk
-    <h2>: Fitur Utama
-        <h3>: Fitur pertama, Fitur kedua, Fitur ketiga
-    <h2>: Hubungi Kami
-    <h2>: Cara Kerja
+h1: Kalimat nilai utama produk
+    h2: Fitur Utama
+        h3: Fitur pertama, Fitur kedua, Fitur ketiga
+    h2: Hubungi Kami
+    h2: Cara Kerja
 
 - Tangkapan layar pohon aksesibilitas pada DevTools
 ![alt text](image-11.png)
@@ -34,9 +34,11 @@ Repositori : https://github.com/Axcelion017/PAW-Praktikum-CS5/tree/main/week-2
 ![alt text](<localhost(Nest Hub Max).png>)
 - Kelas Flexbox, Grid, dan breakpoint yang digunakan beserta alasannya
 
-Flexbox: Digunakan pada <nav> untuk menyusun logo dan menu navigasi. Menggunakan flex-col agar di layar HP (lebar < 640px) elemen disusun menumpuk ke bawah, dan flex-row agar tersusun mendatar di layar yang lebih besar.
-Grid: Digunakan pada fitur (<ul>) dan tata letak utama (<div> pembungkus section & aside). Grid digunakan agar memudahkan pembagian space berbasis kolom.
-Breakpoint: Menerapkan pendekatan mobile-first. Tampilan default dibuat satu kolom untuk HP. sm: (>= 640px) mengubah fitur menjadi 2 kolom, dan lg: (>= 1024px) mengubah fitur menjadi 3 kolom serta membagi layout konten vs aside menjadi rasio 2:1 (lg:grid-cols-[2fr_1fr]).
+Flexbox: Digunakan pada nav untuk menyusun logo dan menu navigasi. Menggunakan flex-col agar di layar HP (lebar < 640px) elemen disusun menumpuk ke bawah, dan flex-row agar tersusun mendatar di layar yang lebih besar.
+
+Grid: Digunakan pada fitur (ul) dan tata letak utama (div pembungkus section & aside). Grid digunakan agar memudahkan pembagian space berbasis kolom.
+
+Breakpoint: Menerapkan pendekatan mobile-first. Tampilan default dibuat satu kolom untuk HP. sm: (>= 640px) mengubah fitur menjadi 2 kolom, dan lg: (>= 1024px) mengubah fitur menjadi 3 kolom serta membagi layout konten vs aside menjadi rasio 2:1 (lg:grid-cols-[ 2fr_1fr ]).
 
 ## 3. Audit Aksesibilitas
 - Tabel skor Lighthouse sebelum dan sesudah perbaikan
