@@ -1,0 +1,43 @@
+import type { Item } from "./tipe";
+export const daftarItem: Item[] = [
+    {
+        id: 1,
+        judul: "Panel surya atap",
+        kategori: "energi",
+        deskripsi: "Pemantauan produksi listrik harian.",
+        tersedia: true,
+    },
+
+    {
+        id: 2,
+        judul: "Sistem pengelolaan limbah kampus",
+        kategori: "lingkungan",
+        deskripsi: "Sistem untuk mengelola dan mengurangi limbah yang dihasilkan oleh kampus.",
+        tersedia: true,
+    },
+
+    {
+        id: 3,
+        judul: "Lampu LED hemat energi",
+        kategori: "energi",
+        deskripsi: "Lampu LED dengan konsumsi listrik rendah.",
+        tersedia: true,
+    },
+
+    {
+        id: 4,
+        judul: "Kebun vertikal kampus",
+        kategori: "kampus",
+        deskripsi: "Kebun yang ditempatkan di area vertikal di kampus.",
+        tersedia: true,
+    },
+
+    {
+        id: 5,
+        judul: "Sistem irigasi otomatis",
+        kategori: "lingkungan",
+        deskripsi:" Sistem irigasi yang mengatur penyiraman tanaman secara otomatis.",
+        tersedia: true,
+    },
+ // ... minimal lima item berikutnya
+];
