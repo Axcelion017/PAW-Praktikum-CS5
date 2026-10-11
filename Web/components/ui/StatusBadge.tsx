@@ -8,12 +8,8 @@ export interface StatusBadgeProps {
   className?: string;
 }
 
-export function StatusBadge({
-  label,
-  variant = "neutral",
-  className = "",
-}: StatusBadgeProps) {
-  const variantStyles: Record<BadgeVariant, string> = {
+export function StatusBadge({ label, variant = "neutral", className = "" }: StatusBadgeProps) {
+  const styles: Record<BadgeVariant, string> = {
     success: "bg-emerald-100 text-emerald-800 border-emerald-200",
     danger: "bg-red-100 text-red-800 border-red-200",
     warning: "bg-amber-100 text-amber-800 border-amber-200",
@@ -21,9 +17,7 @@ export function StatusBadge({
   };
 
   return (
-    <span
-      className={`inline-block px-2.5 py-0.5 text-[11px] font-black rounded-full uppercase border ${variantStyles[variant]} ${className}`}
-    >
+    <span className={`inline-block px-2.5 py-0.5 text-[10px] sm:text-[11px] font-black rounded-full uppercase border ${styles[variant]} ${className}`}>
       {label}
     </span>
   );

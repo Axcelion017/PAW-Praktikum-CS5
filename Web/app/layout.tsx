@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   title: "Resilio-Health | Hospital Information System",
-  description:
-    "Web-based Hospital Information System dengan Cryptographic Offline-First Resilience dan Zero-Trust Patient Data Sovereignty.",
+  description: "Sistem Informasi Rekam Medis Rumah Sakit dengan Enkripsi AES-256-GCM dan Zero-Trust Gateway",
 };
 
 export default function RootLayout({
@@ -14,15 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="antialiased bg-[#F8FAFC] text-neutral-800">
+      <body className={`${montserrat.variable} font-sans antialiased bg-slate-50 text-slate-800`}>
         {children}
       </body>
     </html>
