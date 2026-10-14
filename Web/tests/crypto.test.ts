@@ -1,28 +1,42 @@
-import { encryptAES_GCM, decryptAES_GCM } from "../lib/crypto/aes";
+import { describe, test, expect } from "vitest";
+import { encryptAES, decryptAES } from "../lib/crypto/aes";
 import { generateHMAC, verifyHMAC } from "../lib/crypto/hmac";
 
 describe("Resilio-Health Cryptographic Tests", () => {
-  const key = "SessionSecret2026!";
-  const payload = JSON.stringify({ patientId: "P-101", diagnosis: "Hipertensi" });
+  // Kunci heksadesimal 256-bit (64 karakter hex) yang valid untuk AES-GCM & HMAC
+  const keyHex = "a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4e5f60718293a4b5c6d7e8f90";
+  const payload = JSON.stringify({ patientId: "P-101", diagnosis: "Hipertensi Primer Derajat 1" });
 
   test("1. Positif: Enkripsi & dekripsi AES-256-GCM valid", async () => {
-    const { ciphertext, ivHex } = await encryptAES_GCM(payload, key);
-    const result = await decryptAES_GCM(ciphertext, ivHex, key);
-    expect(result).toBe(payload);
+    const { ciphertext, iv } = await encryptAES(payload, keyHex);
+    expect(ciphertext).toBeDefined();
+    expect(iv).toBeDefined();
+
+    const decrypted = await decryptAES(ciphertext, iv, keyHex);
+    expect(decrypted).toBe(payload);
   });
 
   test("2. Positif: Validasi HMAC-SHA256 data utuh", async () => {
-    const hmac = await generateHMAC(payload, key);
-    expect(await verifyHMAC(payload, hmac, key)).toBe(true);
+    const hmac = await generateHMAC(payload, keyHex);
+    expect(hmac).toBeDefined();
+
+    const isMatch = await verifyHMAC(payload, hmac, keyHex);
+    expect(isMatch).toBe(true);
   });
 
   test("3. Negatif: Manipulasi data merusak HMAC", async () => {
-    const hmac = await generateHMAC(payload, key);
-    expect(await verifyHMAC(payload + "tampered", hmac, key)).toBe(false);
+    const hmac = await generateHMAC(payload, keyHex);
+    const tamperedPayload = payload + "tampered";
+
+    const isMatch = await verifyHMAC(tamperedPayload, hmac, keyHex);
+    expect(isMatch).toBe(false);
   });
 
-  test("4. Batas: IV salah menggagalkan dekripsi", async () => {
-    const { ciphertext } = await encryptAES_GCM(payload, key);
-    await expect(decryptAES_GCM(ciphertext, "000000000000000000000000", key)).rejects.toThrow();
+  test("4. Batas: IV salah menggagalkan dekripsi (Fail-Closed)", async () => {
+    const { ciphertext } = await encryptAES(payload, keyHex);
+    // IV buatan/korup dengan panjang 12 bytes hex (24 karakter)
+    const corruptedIV = "000000000000000000000000";
+
+    await expect(decryptAES(ciphertext, corruptedIV, keyHex)).rejects.toThrow();
   });
 });
